@@ -1,11 +1,7 @@
 import nextcord
 from nextcord.ext import commands
-import os
-from dotenv import load_dotenv
 import datetime
-
-load_dotenv()
-TOKEN = os.getenv("TOKEN")
+import config
 
 intents = nextcord.Intents.default()
 intents.message_content = True
@@ -40,4 +36,4 @@ async def ping(interaction: nextcord.Interaction):
 async def rps(interaction: nextcord.Interaction, recipient: nextcord.User):
     await interaction.send(f"{recipient.mention}, you have been challenged to a manly game of Rock Paper Scissors by {interaction.user.mention}! To start playing, click one of the (3) buttons below.") # type: ignore
 
-bot.run(str(TOKEN))
+bot.run(config.lmao())
